@@ -10,7 +10,6 @@ import SwiftUI
 struct TestPopOver: View {
     
     @State var popping = false
-    @State var systemPoping = false
     
     @State var fontSize: CGFloat = 24
     
@@ -19,12 +18,6 @@ struct TestPopOver: View {
             Button("1. my pop over") {
                 popping = true
             }
-            Button("2. system pop over") {
-                systemPoping = true
-            }
-        }
-        .popover(isPresented: $systemPoping) {
-            showingBody()
         }
         .myShowing(showing: $popping) {
             showingBody()

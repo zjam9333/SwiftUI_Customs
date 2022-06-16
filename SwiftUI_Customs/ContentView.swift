@@ -28,6 +28,9 @@ struct ContentView: View {
                     testCell {
                         TestPopOver()
                     }
+                    testCell {
+                        TestPageView()
+                    }
                 }
             }
             .listStyle(.plain)

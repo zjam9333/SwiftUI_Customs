@@ -15,6 +15,8 @@ struct PopOverModifier<PopContent: View>: ViewModifier {
     @State private var contentOffset: CGFloat = 0
     @State private var contentOpacity: CGFloat = 0
     
+    @Environment(\.colorScheme) private var colorScheme
+    
     func body(content: Content) -> some View {
         ZStack {
             content
@@ -28,7 +30,12 @@ struct PopOverModifier<PopContent: View>: ViewModifier {
         let dragGesture = DragGesture(minimumDistance: 1)
             .onChanged { ges in
                 withAnimation {
-                    contentOffset = ges.translation.height / 2
+                    if ges.translation.height > 0 {
+                        // 阻力
+                        contentOffset = ges.translation.height / 4
+                    } else {
+                        contentOffset = ges.translation.height / 2
+                    }
                 }
             }
             .onEnded { ges in
@@ -52,7 +59,7 @@ struct PopOverModifier<PopContent: View>: ViewModifier {
             VStack {
                 Spacer()
                 let bg = RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(.white)
+                    .foregroundColor(colorScheme == .light ? .white : .black)
                     .frame(width: geo.size.width)
                     .padding(.bottom, contentOffset - 20 - geo.safeAreaInsets.bottom)
                 
@@ -63,7 +70,7 @@ struct PopOverModifier<PopContent: View>: ViewModifier {
                     .offset(x: 0, y: contentOffset)
             }
             .frame(width: geo.size.width, height: geo.size.height)
-            .background(.black.opacity(backgroundOpacity))
+            .background((colorScheme == .light ? Color.black.opacity(backgroundOpacity) : Color.gray.opacity(backgroundOpacity)).edgesIgnoringSafeArea(.all))
             .contentShape(Rectangle())
             .onAppear {
                 onHide()

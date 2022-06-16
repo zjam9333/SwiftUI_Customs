@@ -12,13 +12,18 @@ struct TestLoading: View {
     @State var loading = false
     
     var body: some View {
-        Button("show loading") {
-            loading = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                loading = false
+        Group {
+            HStack {
+                LoadingView()
+                Button("show loading") {
+                    loading = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        loading = false
+                    }
+                }
             }
         }
-        .loading(isLoading: $loading, text: "Hello Loading")
+        .loading(isLoading: $loading.animation(.default), text: "Hello Loading")
     }
 }
 
