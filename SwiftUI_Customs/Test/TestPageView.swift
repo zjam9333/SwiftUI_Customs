@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct TestPageView: View {
-    
+    let colors: [Color] = [.red, .blue, .green, .yellow]
     @State var currentPage: Int = 3
+    
     var body: some View {
         VStack {
-            PageView(currentPage: $currentPage, datas: 0..<4) { index in
+            PageView(currentPage: $currentPage, datas: colors) { index in
                 ZStack {
-                    Rectangle().foregroundColor(.yellow)
-                    .border(.red, width: 2)
+                    Rectangle().foregroundColor(index)
+                    .border(.brown, width: 2)
                     .padding(10)
-                    Text("Text, \(index)")
+//                    Text("Text, \(index)")
                 }
             }
             .frame(width: 200, height: 200)

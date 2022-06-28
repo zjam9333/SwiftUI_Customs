@@ -57,7 +57,7 @@ public struct PageView<Data: RandomAccessCollection, Content: View>: View where 
             
             let drag = DragGesture(minimumDistance: 1)
                 .onEnded { val in
-                    withAnimation(.linear) {
+                    withAnimation(.easeOut(duration: 0.2)) {
                         if datas.isEmpty {
                             return
                         }
@@ -88,13 +88,16 @@ public struct PageView<Data: RandomAccessCollection, Content: View>: View where 
                     }
                 }.onChanged { val in
                     // 简单处理滑动
-                    let ch = val.translation.width
-                    var testOffset = lastCachedOffset.width - ch
-                    if testOffset < minOffset || testOffset > maxOffset {
-                        // 简单模拟弹力
-//                        ch /= 3
-                        testOffset = lastCachedOffset.width - ch
+                    let originalTranslation = val.translation.width
+                    var testOffset = lastCachedOffset.width - originalTranslation
+                    let boundRate: CGFloat = 0.3
+                    var r: CGFloat = 0
+                    if testOffset < minOffset {
+                        r = testOffset - minOffset
+                    } else if testOffset > maxOffset {
+                        r = testOffset - maxOffset
                     }
+                    testOffset += r * boundRate - r
                     contentOffset.width = testOffset
                 }
             
