@@ -58,25 +58,32 @@ public struct PageView<Data: RandomAccessCollection, Content: View>: View where 
             let drag = DragGesture(minimumDistance: 1)
                 .onEnded { val in
                     withAnimation(.easeOut(duration: 0.2)) {
+                        if size.width <= 0 {
+                            return
+                        }
                         if datas.isEmpty {
                             return
                         }
                         let range = 0...(datas.count - 1)
                         
                         // 处理左右两边、pageEnabled逻辑
-                        var index = Int(contentOffset.width / size.width + 0.5)
+                        let floatPage = contentOffset.width / size.width
+                        var index = Int(floatPage + 0.5)
                         
                         // 惯性？
-//                        let delta = val.predictedEndTranslation.width - val.translation.width
-//                        var testIndex = index
-//                        if delta > 10 {
-//                            testIndex -= 1
-//                        } else if delta < -10 {
-//                            testIndex += 1
-//                        }
-//                        if range.contains(testIndex) {
-//                            index = testIndex
-//                        }
+                        let ra = abs(floatPage - .init(currentPage))
+                        if ra < 0.5 {
+                            let delta = val.predictedEndTranslation.width - val.translation.width
+                            var testIndex = index
+                            if delta > 10 {
+                                testIndex = currentPage - 1
+                            } else if delta < -10 {
+                                testIndex = currentPage + 1
+                            }
+                            if range.contains(testIndex) {
+                                index = testIndex
+                            }
+                        }
                         
                         if index < range.lowerBound {
                             index = range.lowerBound
@@ -111,7 +118,7 @@ public struct PageView<Data: RandomAccessCollection, Content: View>: View where 
             }
             .onReceive(Just(contentOffset)) { rec in
                 if size.width > 0 {
-                    currentPage = Int(rec.width / size.width)
+                    currentPage = Int(rec.width / size.width + 0.5)
                 }
             }
             // 注意平时scrollView的contentOffset和这个offset是相反的
