@@ -42,8 +42,6 @@ struct TestPageView: View {
             }
             .frame(width: 200, height: 100)
             .border(.green, width: 2)
-            .clipped()
-            .contentShape(Rectangle())
             
             PageControl(currentPage: currentPage, pageCount: 4)
         }

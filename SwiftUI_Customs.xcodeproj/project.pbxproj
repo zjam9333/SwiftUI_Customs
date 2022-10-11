@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0F54EF28F511B8001C4048 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0F54EE28F511B8001C4048 /* Tags.swift */; };
+		1C0F54F128F51362001C4048 /* TestTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0F54F028F51362001C4048 /* TestTagView.swift */; };
 		1C4DA92328532A9E002931B9 /* SwiftUI_CustomsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4DA92228532A9E002931B9 /* SwiftUI_CustomsApp.swift */; };
 		1C4DA92528532A9E002931B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4DA92428532A9E002931B9 /* ContentView.swift */; };
 		1C4DA92728532A9E002931B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C4DA92628532A9E002931B9 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1C0F54EE28F511B8001C4048 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		1C0F54F028F51362001C4048 /* TestTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTagView.swift; sourceTree = "<group>"; };
 		1C4DA91F28532A9E002931B9 /* SwiftUI_Customs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Customs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4DA92228532A9E002931B9 /* SwiftUI_CustomsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_CustomsApp.swift; sourceTree = "<group>"; };
 		1C4DA92428532A9E002931B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				1C4DA94128532B44002931B9 /* Split.swift */,
 				1C4DA94328532B5B002931B9 /* Toast.swift */,
 				1CE186AA285B092A00D85494 /* Page.swift */,
+				1C0F54EE28F511B8001C4048 /* Tags.swift */,
 			);
 			path = CustomUILib;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				1CE0416F2856E1DE00D932A7 /* TestLoading.swift */,
 				1C7FE12A2857216F00AE1205 /* TestPopOver.swift */,
 				1CE186AC285B0A9400D85494 /* TestPageView.swift */,
+				1C0F54F028F51362001C4048 /* TestTagView.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 				1CE186AD285B0A9400D85494 /* TestPageView.swift in Sources */,
 				1CE041702856E1DE00D932A7 /* TestLoading.swift in Sources */,
 				1C4DA94D285331E2002931B9 /* TestRoundSlider.swift in Sources */,
+				1C0F54F128F51362001C4048 /* TestTagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +300,7 @@
 				1C7FE12928571FDF00AE1205 /* Showing.swift in Sources */,
 				1C7FE12D28573B4A00AE1205 /* Modifier.swift in Sources */,
 				1C4DA94428532B5B002931B9 /* Toast.swift in Sources */,
+				1C0F54EF28F511B8001C4048 /* Tags.swift in Sources */,
 				1CE186AB285B092A00D85494 /* Page.swift in Sources */,
 				1CE0416E2856DF0F00D932A7 /* Loading.swift in Sources */,
 				1C4DA94228532B44002931B9 /* Split.swift in Sources */,

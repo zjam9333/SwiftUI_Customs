@@ -14,6 +14,9 @@ struct ContentView: View {
             List {
                 Section {
                     testCell {
+                        TestTagView()
+                    }
+                    testCell {
                         TestToast()
                     }
                     testCell {

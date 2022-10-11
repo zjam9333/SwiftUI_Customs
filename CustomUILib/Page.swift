@@ -71,19 +71,20 @@ public struct PageView<Data: RandomAccessCollection, Content: View>: View where 
                         var index = Int(floatPage + 0.5)
                         
                         // 惯性？
-                        let ra = abs(floatPage - .init(currentPage))
-                        if ra < 0.5 {
-                            let delta = val.predictedEndTranslation.width - val.translation.width
-                            var testIndex = index
-                            if delta > 10 {
-                                testIndex = currentPage - 1
-                            } else if delta < -10 {
-                                testIndex = currentPage + 1
-                            }
-                            if range.contains(testIndex) {
-                                index = testIndex
-                            }
-                        }
+//                        let ra = abs(floatPage - .init(currentPage))
+//                        if ra < 0.5 {
+//                            let delta = val.predictedEndTranslation.width - val.translation.width
+//                            var testIndex = index
+//                            let minDelta: CGFloat = 30
+//                            if delta > minDelta {
+//                                testIndex = currentPage - 1
+//                            } else if delta < -minDelta {
+//                                testIndex = currentPage + 1
+//                            }
+//                            if range.contains(testIndex) {
+//                                index = testIndex
+//                            }
+//                        }
                         
                         if index < range.lowerBound {
                             index = range.lowerBound
@@ -124,5 +125,7 @@ public struct PageView<Data: RandomAccessCollection, Content: View>: View where 
             // 注意平时scrollView的contentOffset和这个offset是相反的
             .gesture(drag)
         }
+        .clipped()
+        .contentShape(Rectangle())
     }
 }
