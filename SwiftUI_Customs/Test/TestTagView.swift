@@ -15,7 +15,7 @@ fileprivate struct IDModel<T>: Identifiable {
 
 extension IDModel: Equatable where T: Equatable {
     static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.obj == rhs.obj
+        return lhs.id == rhs.id
     }
 }
 
@@ -27,40 +27,69 @@ extension IDModel: Hashable where T: Hashable {
 
 struct TestTagView: View {
     
-    let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    let days: [String] = {
+        var r = "L"
+        var arr: [String] = []
+        for i in 0..<20 {
+            r += "."
+            arr.append(r)
+        }
+        return arr
+    }()
     
     @State fileprivate var selectedItems: Set<IDModel<String>> = []
-    @State fileprivate var items: [IDModel<String>] = [.init(obj: "Monday")]
+    @State fileprivate var items: [IDModel<String>] = [
+        .init(obj: "VeryVeryLongLongLongLongLongObject+OIJDSOFIJSDOFI"),
+        .init(obj: "L0")
+    ]
     
     var body: some View {
         //        ZStack(alignment: .topTrailing) {
         ScrollView {
             Button("add") {
-                items.insert(.init(obj: days.randomElement()!), at: 0)
+                if let ranIndex = items.indices.randomElement() {
+                    withAnimation {
+                        items.insert(.init(obj: days.randomElement()!), at: ranIndex)
+                    }
+                }
             }
             
-            TagView(items: $items) { s in
-                Text(s.obj)
-                    .lineLimit(1)
-                    .padding(5)
-                    .font(.body)
-                    .background(selectedItems.contains(s) ? Color.blue : Color.gray)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(5)
-                    .padding(5)
-                    .onTapGesture {
-                        withAnimation {
-                            if selectedItems.contains(s) {
-                                selectedItems.remove(s)
-                            } else {
-                                selectedItems.insert(s)
-                            }
-                        }
+            if #available(iOS 16.0, *) {
+                TagView2 {
+                    ForEach(items) { s in
+                        someBody(s: s)
                     }
+                }
+                .padding(5)
+                .border(.blue)
+            } else {
+                TagView(items: items) { s in
+                    someBody(s: s)
+                }
+                .padding(5)
+                .border(.orange)
             }
-            .padding(5)
-            .border(.orange)
         }
+        .padding(.leading, 50)
+    }
+    
+    private func someBody(s: IDModel<String>) -> some View {
+        Text(s.obj)
+            .lineLimit(1)
+            .padding(5)
+            .font(.body)
+            .foregroundColor(Color.black)
+            .border(selectedItems.contains(s) ? .blue : .yellow)
+            .padding(5)
+            .onTapGesture {
+                withAnimation {
+                    if selectedItems.contains(s) {
+                        selectedItems.remove(s)
+                    } else {
+                        selectedItems.insert(s)
+                    }
+                }
+            }
     }
 }
 

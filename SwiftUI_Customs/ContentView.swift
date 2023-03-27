@@ -34,6 +34,9 @@ struct ContentView: View {
                     testCell {
                         TestPageView()
                     }
+                    testCell {
+                        TestSizeView()
+                    }
                 }
             }
             .listStyle(.plain)

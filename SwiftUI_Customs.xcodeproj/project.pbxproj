@@ -25,6 +25,9 @@
 		1C7FE12928571FDF00AE1205 /* Showing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FE12828571FDF00AE1205 /* Showing.swift */; };
 		1C7FE12B2857216F00AE1205 /* TestPopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FE12A2857216F00AE1205 /* TestPopOver.swift */; };
 		1C7FE12D28573B4A00AE1205 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FE12C28573B4A00AE1205 /* Modifier.swift */; };
+		1C9BB55229544B1A002D801E /* Adapt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9BB55129544B1A002D801E /* Adapt.swift */; };
+		1C9BB55429544C54002D801E /* ReadSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9BB55329544C54002D801E /* ReadSize.swift */; };
+		1C9BB556295450FD002D801E /* TestSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9BB555295450FD002D801E /* TestSizeView.swift */; };
 		1CE0416E2856DF0F00D932A7 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0416D2856DF0F00D932A7 /* Loading.swift */; };
 		1CE041702856E1DE00D932A7 /* TestLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0416F2856E1DE00D932A7 /* TestLoading.swift */; };
 		1CE186AB285B092A00D85494 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE186AA285B092A00D85494 /* Page.swift */; };
@@ -74,6 +77,9 @@
 		1C7FE12828571FDF00AE1205 /* Showing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Showing.swift; sourceTree = "<group>"; };
 		1C7FE12A2857216F00AE1205 /* TestPopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPopOver.swift; sourceTree = "<group>"; };
 		1C7FE12C28573B4A00AE1205 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
+		1C9BB55129544B1A002D801E /* Adapt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapt.swift; sourceTree = "<group>"; };
+		1C9BB55329544C54002D801E /* ReadSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadSize.swift; sourceTree = "<group>"; };
+		1C9BB555295450FD002D801E /* TestSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSizeView.swift; sourceTree = "<group>"; };
 		1CE0416D2856DF0F00D932A7 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		1CE0416F2856E1DE00D932A7 /* TestLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoading.swift; sourceTree = "<group>"; };
 		1CE186AA285B092A00D85494 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
@@ -140,15 +146,17 @@
 		1C4DA93628532B13002931B9 /* CustomUILib */ = {
 			isa = PBXGroup;
 			children = (
+				1C9BB55129544B1A002D801E /* Adapt.swift */,
 				1C4DA93728532B13002931B9 /* CustomUILib.h */,
 				1CE0416D2856DF0F00D932A7 /* Loading.swift */,
 				1C7FE12C28573B4A00AE1205 /* Modifier.swift */,
+				1CE186AA285B092A00D85494 /* Page.swift */,
+				1C9BB55329544C54002D801E /* ReadSize.swift */,
 				1C7FE12828571FDF00AE1205 /* Showing.swift */,
 				1C4DA94A2853318C002931B9 /* Slider.swift */,
 				1C4DA94128532B44002931B9 /* Split.swift */,
-				1C4DA94328532B5B002931B9 /* Toast.swift */,
-				1CE186AA285B092A00D85494 /* Page.swift */,
 				1C0F54EE28F511B8001C4048 /* Tags.swift */,
+				1C4DA94328532B5B002931B9 /* Toast.swift */,
 			);
 			path = CustomUILib;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 				1C7FE12A2857216F00AE1205 /* TestPopOver.swift */,
 				1CE186AC285B0A9400D85494 /* TestPageView.swift */,
 				1C0F54F028F51362001C4048 /* TestTagView.swift */,
+				1C9BB555295450FD002D801E /* TestSizeView.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -283,6 +292,7 @@
 				1C4DA94728532C65002931B9 /* TestToast.swift in Sources */,
 				1C4DA94928532E37002931B9 /* TestSplitView.swift in Sources */,
 				1C4DA92528532A9E002931B9 /* ContentView.swift in Sources */,
+				1C9BB556295450FD002D801E /* TestSizeView.swift in Sources */,
 				1C7FE12B2857216F00AE1205 /* TestPopOver.swift in Sources */,
 				1C4DA92328532A9E002931B9 /* SwiftUI_CustomsApp.swift in Sources */,
 				1CE186AD285B0A9400D85494 /* TestPageView.swift in Sources */,
@@ -296,9 +306,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C9BB55229544B1A002D801E /* Adapt.swift in Sources */,
 				1C4DA94B2853318C002931B9 /* Slider.swift in Sources */,
 				1C7FE12928571FDF00AE1205 /* Showing.swift in Sources */,
 				1C7FE12D28573B4A00AE1205 /* Modifier.swift in Sources */,
+				1C9BB55429544C54002D801E /* ReadSize.swift in Sources */,
 				1C4DA94428532B5B002931B9 /* Toast.swift in Sources */,
 				1C0F54EF28F511B8001C4048 /* Tags.swift in Sources */,
 				1CE186AB285B092A00D85494 /* Page.swift in Sources */,
